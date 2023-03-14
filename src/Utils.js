@@ -14,4 +14,14 @@ const fetchArticles = (topic, sortBy, orderBy) => {
     });
 };
 
-export { fetchArticles }
+const fetchArticle = (articleId) => {
+    return axios
+    .get(
+      `https://projectnewssite-backend2.onrender.com/api/articles/${articleId}`
+    )
+    .then((response) => {
+      return response.data.article;
+    });
+}
+
+export { fetchArticles, fetchArticle }
