@@ -1,9 +1,11 @@
-const Article = () => {
+import {Article} from "../Components"
+
+const ArticlePage = () => {
     return (
         <wrapper>
-            <h1>This is the Article page</h1>
+            <Article/>
         </wrapper>
     )
 }
 
-export default Article
+export default ArticlePage

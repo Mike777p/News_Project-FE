@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  
   background-color: cream;
   padding: 10px;
 
@@ -10,6 +11,7 @@ const Wrapper = styled.div`
   }
 
   li {
+    
     display: flex;
     border: solid black;
     align-items: center;

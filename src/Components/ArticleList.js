@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { fetchArticles } from '../Utils.js';
 import Wrapper from '../Assets/wrappers/ArticleListWrapper';
 
 const ArticlesList = (props) => {
     
 const [articles, setArticles] = useState([]);
-const [isLoading, SetLoading] = useState(false)
+const [isLoading, setLoading] = useState(false)
 
 useEffect(() => {
-    SetLoading(true)
+    setLoading(true)
     fetchArticles(props.topic, props.sortBy, props.orderBy).then((response)=> {
         setArticles(response); 
-        SetLoading(false)
+        setLoading(false)
     })
   }, [props.topic, props.sortBy, props.orderBy]);
 
@@ -24,6 +25,7 @@ useEffect(() => {
       <ul>
         {articles.map((article) => (
           <li key={article.article_id} >
+            <Link to={`/${article.article_id}`}>
               <img src={article.article_img_url} alt="Article thumbnail" />
               <h2>{article.title}</h2>
               <section className='list_info'>
@@ -42,6 +44,7 @@ useEffect(() => {
               </section>
             <h3 className='list_topic'>Topic:</h3>
             <h3>{article.topic}</h3>
+            </Link>
           </li>
         ))}
       </ul>
