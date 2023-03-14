@@ -10,8 +10,8 @@ const [isLoading, SetLoading] = useState(false)
 useEffect(() => {
     SetLoading(true)
     fetchArticles(props.topic, props.sortBy, props.orderBy).then((response)=> {
-        SetLoading(false)
         setArticles(response); 
+        SetLoading(false)
     })
   }, [props.topic, props.sortBy, props.orderBy]);
 
