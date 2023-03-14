@@ -25,7 +25,7 @@ useEffect(() => {
       <ul>
         {articles.map((article) => (
           <li key={article.article_id} >
-            <Link to={`/${article.article_id}`}>
+            <Link to={`/articles/${article.article_id}`}>
               <img src={article.article_img_url} alt="Article thumbnail" />
               <h2>{article.title}</h2>
               <section className='list_info'>

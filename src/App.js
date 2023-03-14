@@ -7,8 +7,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:article_id" element={<ArticlePage />} />
+        <Route path="/articles" element={<Home />} />
+        <Route path="/articles/:article_id" element={<ArticlePage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

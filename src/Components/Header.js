@@ -1,4 +1,4 @@
-import Logo from "./Logo";
+import {Logo} from "./index";
 import Wrapper from "../Assets/wrappers/HeaderWrapper";
 
 const Header = () => {

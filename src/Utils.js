@@ -24,4 +24,15 @@ const fetchArticle = (articleId) => {
     });
 }
 
-export { fetchArticles, fetchArticle }
+const fetchComments = (articleId) => {
+  return axios
+  .get(
+    `https://projectnewssite-backend2.onrender.com/api/articles/${articleId}/comments`
+  )
+  .then((response) => {
+    console.log(response)
+    return response.data.comments;
+  });
+}
+
+export { fetchArticles, fetchArticle, fetchComments }
