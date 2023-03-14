@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchArticle } from "../Utils.js";
 import Wrapper from '../Assets/wrappers/ArticleWrapper';
 
@@ -22,6 +22,7 @@ const Article = () => {
 
   return (
     <Wrapper>
+        <Link to="/">back home</Link>
     <div>
       <h1>{article.title}</h1>
       <img src={article.article_img_url} alt="Article thumbnail" />

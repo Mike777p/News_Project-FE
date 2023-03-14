@@ -1,17 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
+  text-align: center;
+  display: block;
   justify-content: space-between;
   align-items: center;
   background-color: #f2f2f2;
   padding: 10px;
-  margin-left: 50px;
+  margin: 1em;
 
   nav {
     align-items: center;
   }
-  
-  `
+`;
 
-export default Wrapper
+export default Wrapper;
