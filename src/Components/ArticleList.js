@@ -5,12 +5,19 @@ import Wrapper from '../Assets/wrappers/ArticleListWrapper';
 const ArticlesList = (props) => {
     
 const [articles, setArticles] = useState([]);
+const [isLoading, SetLoading] = useState(false)
 
 useEffect(() => {
+    SetLoading(true)
     fetchArticles(props.topic, props.sortBy, props.orderBy).then((response)=> {
+        SetLoading(false)
         setArticles(response); 
     })
   }, [props.topic, props.sortBy, props.orderBy]);
+
+  if (isLoading) {
+    return <h3 className='loading'>Loading, please wait ....</h3>
+  }
 
   return (
     <Wrapper>

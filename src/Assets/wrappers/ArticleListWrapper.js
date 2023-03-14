@@ -43,7 +43,6 @@ h3 {
     background-color: antiquewhite;
 }
 
-
 `;
 
 
