@@ -6,18 +6,28 @@ import Wrapper from '../Assets/wrappers/ArticleListWrapper';
 const ArticlesList = (props) => {
     
 const [articles, setArticles] = useState([]);
-const [isLoading, setLoading] = useState(false)
+const [isLoading, setLoading] = useState(false);
+const [errorHandle, setErrorHandle] = useState(false);
 
 useEffect(() => {
     setLoading(true)
-    fetchArticles(props.topic, props.sortBy, props.orderBy).then((response)=> {
+    fetchArticles(props.topic, props.sortBy, props.orderBy).then((response)=> { 
         setArticles(response); 
-        setLoading(false)
+        if (response.length > 0) {
+          setLoading(false)
+        }
+      }).catch(()=>{
+        setLoading(false);
+        setErrorHandle(true)
+        
     })
   }, [props.topic, props.sortBy, props.orderBy]);
 
   if (isLoading) {
     return <h3 className='loading'>Loading, please wait ....</h3>
+  }
+  if (errorHandle) {
+    return <p>There's a problem with the news site, please come back later!</p>
   }
 
   return (

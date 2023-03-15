@@ -25,16 +25,16 @@ const Comments = (props) => {
     <ul>
       {comments.map((comment) => {
         return (
-          <li key={comments.comment_id}>
+          <li key={comment.comment_id}>
             <div className="comment_li_info">
-              <h3>{comment.comment_id}</h3>
-              <h3>{comment.article_id}</h3>
-              <h3>{comment.author}</h3>
+              <p>No : {comment.comment_id}</p>
+              <p>ID: {comment.article_id}</p>
+              <p>Author : {comment.author}</p>
             </div>
-            <p>{comment.body}</p>
+            {comment.body ? <p>{comment.body}</p> : <p>No comment yet...</p>}
             <div className="comment_li_info">
-              <h3>{comment.created_at}</h3>
-              <h3>{comments.votes}</h3>
+              <p>Posted : {comment.created_at}</p>
+              <p>Votes : {comments.votes}</p>
             </div>
           </li>
         );
