@@ -37,7 +37,7 @@ const SelectionBar = () => {
           </select>
         </div>
       </Wrapper>
-      <ArticlesList topic={topic} sortBy={sortBy} orderBy={orderBy}/>)
+      <ArticlesList topic={topic} sortBy={sortBy} orderBy={orderBy}/>
     </div> )
 }
 

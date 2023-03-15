@@ -7,9 +7,9 @@ const ErrorPage = () => {
         <Wrapper className='full-page'>
           <div>
             <img src={img} alt='not found' />
-            <h3>text</h3>
-            <p>text</p>
-            <Link to='/'>back home</Link>
+            <h3>Go back!!!!</h3>
+            <p>Sort it out me old China!!</p>
+            <Link to='/articles'>back home</Link>
           </div>
         </Wrapper>
       );
