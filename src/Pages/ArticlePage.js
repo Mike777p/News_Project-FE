@@ -1,10 +1,11 @@
 import {Article} from "../Components"
+import Wrapper from "../Assets/Wrappers/ArticleWrapper"
 
-const ArticlePage = () => {
+const ArticlePage = (props) => {
     return (
-        <wrapper>
-            <Article/>
-        </wrapper>
+        <Wrapper>
+            <Article user={props.user}/>
+        </Wrapper>
     )
 }
 
