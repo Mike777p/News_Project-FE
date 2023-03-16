@@ -32,7 +32,7 @@ const fetchArticle = (articleId) => {
 const fetchComments = (articleId) => {
   return axios
   .get(
-    `https://projectnewssite-backend2.onrender.com/api/articles/${articleId}/comments`
+    `https://projectnewssite-backend2.onrender.com/api/articles/${articleId}/comments`, 
   )
   .then((response) => {
     return response.data.comments;
@@ -45,9 +45,20 @@ const voteForArticle = (articleId) => {
     `https://projectnewssite-backend2.onrender.com/api/articles/${articleId}`, { inc_votes : 1}
   )
   .then((response) => {
-    console.log(response)
     return response.data.comments;
   });
 }
 
-export { fetchArticles, fetchArticle, fetchComments, voteForArticle }
+const postComment = (articleId, username, body) => {
+  console.log("Posting comment:", { articleId, username, body });
+  return axios
+    .post(`https://projectnewssite-backend2.onrender.com/api/articles/${articleId}/comments`, { username, body })
+    .then((response) => {
+      return response.data.comment;
+    }).catch((error) => {
+      console.error("Error posting comment:", error.response ? error.response.data : error.message);
+      throw error;
+    });
+};
+
+export { fetchArticles, fetchArticle, fetchComments, voteForArticle, postComment }
