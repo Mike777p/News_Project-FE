@@ -6,6 +6,7 @@ import Wrapper from "../Assets/Wrappers/ArticleListWrapper";
 const Comments = (props) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     setLoading(true);
@@ -23,12 +24,14 @@ const Comments = (props) => {
     <div>
       <Wrapper>
         <ul>
-          <UserComment
+          {isError ? <p> Error posting comment! Please refresh the page and try again! </p> :  <UserComment
+          isError={isError}
+            setIsError={setIsError}
             user={props.user}
             setComments={setComments}
             comments={comments}
             article_id={props.article_id}
-          />
+          />}
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>
