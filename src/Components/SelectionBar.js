@@ -1,11 +1,19 @@
 import Wrapper from "../Assets/Wrappers/SelectionBarWrapper";
 import { ArticlesList } from "./index";
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const SelectionBar = () => {
   const [topic, setTopic] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [orderBy, setOrderBy] = useState("");
+  const navigate = useNavigate();
+
+    const handleTopicChange = (e) => {
+      setTopic(e.target.value);
+      navigate(`/newTopic/${e.target.value}`);
+      
+    };
 
   return (
     <div>
@@ -15,7 +23,7 @@ const SelectionBar = () => {
           <select
             id="topic"
             value={topic}
-            onChange={(e) => setTopic(e.target.value)}
+            onChange={handleTopicChange}
           >
             <option value="">--select a topic--</option>
             <option value="cooking">Cooking</option>
@@ -25,7 +33,7 @@ const SelectionBar = () => {
         </div>
         <div className="selector_sort-by">
           <label>Sort by:</label>
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <select value={sortBy} onChange={handleTopicChange}>
             <option value="">--select a sorting option--</option>
             <option value="author">Author</option>
             <option value="date">Date</option>

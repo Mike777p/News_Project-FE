@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
   li {
     
-    display: flex;
+    display: block;
     border: solid black;
     align-items: center;
     justify-content: space-between;
@@ -41,7 +41,7 @@ h3 {
 }
 
 .list_info_comments-votes, .list_info_author-date {
-    display: flex;
+    display: bblock;
     background-color: antiquewhite;
 }
 

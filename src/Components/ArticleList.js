@@ -8,6 +8,8 @@ const ArticlesList = (props) => {
   const [isLoading, setLoading] = useState(false);
   const [errorHandle, setErrorHandle] = useState(false);
 
+  console.log(props.topic)
+
   useEffect(() => {
     setLoading(true);
     fetchArticles(props.topic, props.sortBy, props.orderBy)

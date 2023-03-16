@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   text-align: center;
   display: block;
   justify-content: space-between;
@@ -9,6 +9,14 @@ const Wrapper = styled.div`
   padding: 10px;
   margin: 1em;
 
+  .Cooking-Page-Div{
+    display: block;
+    text-align: center;
+  }
+
+  h2 {
+    color: chocolate;
+  }
 `;
 
-export default Wrapper;
+export default Wrapper
