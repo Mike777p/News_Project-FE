@@ -24,7 +24,7 @@ const Comments = (props) => {
     <div>
       <Wrapper>
         <ul>
-          {isError ? <p> Trying to post comment ... refresh the page to try again! </p> :  <UserComment
+          {isError ? <p> Trying to post comment ... refresh the page if this persists! </p> :  <UserComment
           isError={isError}
             setIsError={setIsError}
             user={props.user}
