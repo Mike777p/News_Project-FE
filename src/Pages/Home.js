@@ -1,13 +1,14 @@
 import { SelectionBar} from "../Components";
+import Wrapper from "../Assets/Wrappers/HomeWrapper"
 
 
 const Home = () => {
 
 
   return (
-    <wrapper>
+    <Wrapper>
       <SelectionBar/>
-    </wrapper>
+    </Wrapper>
   );
 };
 
