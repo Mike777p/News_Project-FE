@@ -10,20 +10,23 @@ const UserComment = (props) => {
 
   const handleSubmit = (event) => {
     setIsUpdated(true)
+    props.setIsError(true)
     event.preventDefault();
+    const currentDate = new Date();
     const newCommentObj = {
       comment_id: 9999,
       body: commentText,
       article_id: 9999,
-      author: props.user.name,
+      author: props.user.username,
       votes: 0,
-      created_at: Date.now(),
+      created_at: new Date(currentDate).toDateString(),
     };
 
     props.setComments([newCommentObj, ...props.comments]);
 
-    postComment(props.article_id, "grumpy19", commentText)
+    postComment(props.article_id, props.user.username, commentText)
       .then(() => {
+        props.setIsError(false)
         setCommentPosted(true)
         setIsUpdated(false)
       })

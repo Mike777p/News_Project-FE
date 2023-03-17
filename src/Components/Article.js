@@ -44,7 +44,7 @@ const Article = (props) => {
           <h1>{article.title}</h1>
           <img src={article.article_img_url} alt="Article thumbnail" />
           <p>Author: {article.author}</p>
-          <p>Date: {article.created_at}</p>
+          <p>Date: {new Date(article.created_at).toDateString()}</p>
           <p>{article.body}</p>
           <button onClick={onClick} disabled={userVote !== 0}>
             ❤️

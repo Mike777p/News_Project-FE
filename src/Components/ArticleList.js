@@ -51,7 +51,7 @@ const ArticlesList = (props) => {
                   <h3>Author:</h3>
                   <h3>{article.author}</h3>
                   <h3>Date:</h3>
-                  <h3>{article.created_at}</h3>
+                  <h3>{new Date(article.created_at).toDateString()}</h3>
                 </div>
               </section>
               <h3 className="list_topic">Topic:</h3>
