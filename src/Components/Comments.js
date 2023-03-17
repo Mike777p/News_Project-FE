@@ -24,7 +24,7 @@ const Comments = (props) => {
     <div>
       <Wrapper>
         <ul>
-          {isError ? <p> Error posting comment! Please refresh the page and try again! </p> :  <UserComment
+          {isError ? <p> Trying to post comment ... refresh the page to try again! </p> :  <UserComment
           isError={isError}
             setIsError={setIsError}
             user={props.user}
@@ -44,7 +44,7 @@ const Comments = (props) => {
                   <p>No comment yet...</p>
                 )}
                 <div className="comment_li_info">
-                  <p>Posted : {comment.created_at}</p>
+                  <p>Posted : {new Date(comment.created_at).toDateString()}</p>
                   <p>Votes : {comments.votes}</p>
                 </div>
               </li>

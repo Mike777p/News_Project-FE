@@ -2,7 +2,7 @@
   import { Home, ArticlePage, ErrorPage, CookingPage, CodingPage, FootballPage } from "./Pages/";
   import { Header } from "./Components/";
   const [user] = ([{
-    username: 'butter_bridge',
+    username: 'grumpy19',
     name: 'jonny',
     avatar_url:
       'https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg'
