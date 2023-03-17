@@ -33,12 +33,12 @@ const SelectionBar = () => {
         </div>
         <div className="selector_sort-by">
           <label>Sort by:</label>
-          <select value={sortBy} onChange={handleTopicChange}>
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
             <option value="">--select a sorting option--</option>
             <option value="author">Author</option>
-            <option value="date">Date</option>
+            <option value="created_at">Date</option>
             <option value="votes">Votes</option>
-            <option value="commentCount">Comment count</option>
+            <option value="comment_count">Comment count</option>
           </select>
         </div>
         <div className="selector_sort-by">
