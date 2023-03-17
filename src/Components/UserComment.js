@@ -23,7 +23,7 @@ const UserComment = (props) => {
     props.setComments([newCommentObj, ...props.comments]);
 
     postComment(props.article_id, "grumpy19", commentText)
-      .then((postedComment) => {
+      .then(() => {
         setCommentPosted(true)
         setIsUpdated(false)
       })
