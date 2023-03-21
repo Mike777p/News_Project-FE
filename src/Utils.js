@@ -50,7 +50,6 @@ const voteForArticle = (articleId) => {
 }
 
 const postComment = (articleId, username, body) => {
-  console.log("Posting comment:", { articleId, username, body });
   return axios
     .post(`https://projectnewssite-backend2.onrender.com/api/articles/${articleId}/comments`, { username, body })
     .then((response) => {
@@ -61,4 +60,15 @@ const postComment = (articleId, username, body) => {
     });
 };
 
-export { fetchArticles, fetchArticle, fetchComments, voteForArticle, postComment }
+const deleteComment = (comment_id) => {
+  return axios.delete(`https://projectnewssite-backend2.onrender.com/api/comments/${comment_id}`).then((response)=>{
+    console.log("Hello")
+  return response
+  })
+  .catch((error) => {
+    console.error("Error deleting comment:", error.response ? error.response.data : error.message);
+    throw error;
+  });
+}
+
+export { fetchArticles, fetchArticle, fetchComments, voteForArticle, postComment, deleteComment }

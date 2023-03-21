@@ -1,12 +1,27 @@
 import { useState, useEffect } from "react";
-import { fetchComments } from "../Utils";
+import { fetchComments, deleteComment } from "../Utils";
 import { UserComment } from "./index";
-import Wrapper from "../Assets/Wrappers/ArticleListWrapper";
+import Wrapper from "../Assets/Wrappers/CommentsWrapper";
 
 const Comments = (props) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false)
+  const [isError, setIsError] = useState(false);
+  const [deletingComment, setDeletingComment] = useState(false);
+
+const handleDeleteComment = (comment_id) => {
+  setDeletingComment(true);
+  const deletedComment = comments.find((comment) => comment.comment_id === comment_id);
+  const updatedComments = comments.filter((comment) => comment.comment_id !== comment_id);
+  setComments(updatedComments);
+  deleteComment(comment_id).then(()=>{
+    setDeletingComment(false)
+  }).catch((error)=>{
+    console.log("error deleting!!", error)
+    setComments([...updatedComments, deletedComment])
+  })
+
+}
 
   useEffect(() => {
     setLoading(true);
@@ -19,6 +34,7 @@ const Comments = (props) => {
   if (isLoading) {
     return <div>Loading... please wait</div>;
   }
+
 
   return (
     <div>
@@ -35,6 +51,7 @@ const Comments = (props) => {
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>
+                {deletingComment && <p className="p-deletingComment"> Comment Deleting, please wait or refresh!!</p>}
                 <div className="comment_li_info">
                   <p>Author : {comment.author}</p>
                 </div>
@@ -47,6 +64,7 @@ const Comments = (props) => {
                   <p>Posted : {new Date(comment.created_at).toDateString()}</p>
                   <p>Votes : {comments.votes}</p>
                 </div>
+                {(comment.author === props.user.username) && <button onClick={() => handleDeleteComment(comment.comment_id)} disabled={deletingComment} className="delete-comment-button">Delete</button>}
               </li>
             );
           })}
